@@ -254,7 +254,12 @@ static uint32_t daqcap_daq_get_capabilities(void *handle)
 
 static int daqcap_daq_get_datalink_type(void *handle)
 {
-    return DLT_EN10MB;
+    DAQCap_Context_t *dcc = (DAQCap_Context_t *) handle;
+
+    if (dcc->capture)
+        return daq_capture_linktype(dcc->capture);
+
+    return DLT_NULL;
 }
 
 static const char *daqcap_daq_get_errbuf(void *handle)

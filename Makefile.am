@@ -1,4 +1,10 @@
 AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = src module
+SUBDIRS = src
+if BUILD_DAQCAP_EXAMPLE
+SUBDIRS += example
+endif
+if BUILD_DAQCAP_MODULE
+SUBDIRS += module
+endif

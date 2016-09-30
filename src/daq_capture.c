@@ -42,6 +42,20 @@ typedef struct _daq_capture
  * Shared
  */
 
+uint32_t daq_capture_snaplen(DAQ_Capture_t *capture)
+{
+    if (!capture)
+        return 0;
+    return capture->snaplen;
+}
+
+uint32_t daq_capture_linktype(DAQ_Capture_t *capture)
+{
+    if (!capture)
+        return 0;
+    return capture->linktype;
+}
+
 void daq_capture_close(DAQ_Capture_t *capture)
 {
     if (capture)
